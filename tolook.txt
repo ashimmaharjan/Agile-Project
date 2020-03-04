@@ -1,0 +1,54 @@
+Profiling for admin: -
+1.Fname
+2.Mname
+3.Lname
+4.Contact detail.
+5.Location.
+6.DOB
+7.Username.
+8.Password.
+9.Profile picture.
+10.About.
+11.Gender
+12.Badges.
+13.Email.
+14.Auto bidder number.
+
+
+Profiling for credit admin:
+1.Username.
+2.Password.
+
+
+
+physics is easy than sociology 
+( sensemaking first chapter ) 
+
+
+
+
+Abstract 
+Introduction
+Literature review 
+Methodology 
+Findings 
+Conclusion
+Recommendation 
+Reference and biblography 
+
+
+
+
+for auction
+1.title
+_
+3.Shipping cost
+4.Seller name 
+5.Seller review
+6.country
+7.Year/Period
+8.Type
+9.Condition
+10.Auction end time.
+11.Auction issue time.
+12.Delivery date

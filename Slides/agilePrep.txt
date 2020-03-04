@@ -1,0 +1,30 @@
+Agile
+Role of agile in software development methodology/Why agile?
+Frameworks of agile/explain few of them
+How agile differs from traditional methodologies(waterfall)?
+DSDM(What, role, diagram)
+Kanban(What, how, advantage, kanban board, how it differs from other boards)
+Leen()
+XP
+Crystal
+Scrum(30-40 marks)(events, roles and responsibilities)(Everything related to scrum)(Daily standup, epic)
+Version controlling
+Agile Testing(TDD, BDD, ATDD)
+Agile mainefesto(4 values, 12 principles)
+Acceptance testing
+Burn down chart
+Kaizan(differentiaite from other frameworks)
+Velocity(rate of change)
+
+
+
+
+
+
+
+
+
+
+
+
+

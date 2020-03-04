@@ -1,0 +1,866 @@
+
+	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>  <html lang="en-us" class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html lang="en-us" class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html lang="en-us" class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html lang="en-us" class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html lang="en-us"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en-us">             <!--<![endif]-->
+
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Turnitin, LLC" />
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" />
+<title>Turnitin</title>
+
+<base href="http://api.turnitin.com">
+<style type="text/css">
+body	{
+	color: #333;
+	background: #C0C7CC;
+	padding: 0;
+	border: 0;
+	font: 13px Verdana, arial, sans-serif;
+	margin: 0;
+	}
+	
+form	{
+	padding: 0;
+	margin: 0;
+	}
+	
+body#display	{
+	}
+	
+body#bodysource	{
+	width: 520px;
+	background: #F0F4FA;
+	}
+	
+p	{
+	padding: 10px 18px;
+	margin: 0;
+	}
+	
+img	{
+	border: 0;
+	padding: 0;
+	}
+
+div	{
+	padding: 0;
+	border: 0;
+	}
+	
+iframe	{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	}
+	
+strong	{
+	font-weight: bold;
+	}
+	
+ul	{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 13px;
+	}
+	
+ul li	{
+	padding: 0;
+	margin: 0;
+	line-height: 16px;
+	}
+	
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 20px;
+    }
+
+/*= GENERAL 
+=== === === === === === === === === === === === === === === === === === === === === === === === === === === === === === */	
+
+body  #top_bar {
+display: none !important;
+}
+
+body #index #exclude,
+#download_button,
+#print_button,
+#index .right {
+display: inline-block;
+}
+
+body #index {
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+background: #ececec url(new_dynamic/images/22bd7a01a025b8de122259e42762f0a7cb_ug_toolbar_bg.gif) repeat-x center left;
+}
+
+#toolbar_wrapper {
+padding-left:45px;
+}
+
+body #top {
+width: 85%;
+background-color: #FFF;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+border-bottom: none;
+height: 210px;
+}
+body #content {
+padding: 10px 60px;
+}
+body div#prefs {
+display: none;
+}
+
+body #top h2 {
+font-size: 20px;
+font-weight: normal;
+}
+
+body #top h2 strong {
+font-weight: normal;
+}
+body #top h2 em {
+font-style: normal;
+}
+
+
+body #top h3 {
+font-size: 16px;
+font-weight: normal;
+}
+
+body #top h3 strong {
+font-weight: normal;
+}
+body #top h3 em {
+font-style: normal;
+}
+
+        
+        body #top_body li	{/*Paper info li*/
+            padding:0;
+            margin: 0px 0px 2px 0px;
+            font-size: 10px;
+            }
+            
+            #top_body #print_wrapper {
+                float:left;
+                width: 50%;
+            }
+            
+            #top_body .similarity_print_wrapper {
+                width: 45%;
+                min-width: 283px;
+            }
+                
+            #top_body .similarity_box { /*Similiarity Box w/ Similarity by Source */
+                float: right;
+                border: solid 1px #666;
+                margin-top: 60px;
+                width: 350px;
+            }
+                #top_body .similarity_box .overall_similarity {
+                    float: left;
+                    border-right: solid 1px #666;
+                }
+                    #top_body .similarity_box .overall_similarity .color_box {
+                        font-size: 14px;
+                        width: 140px;
+                    }
+                        #top_body .color_box.green {
+                            background-color: green;
+                        }
+                        #top_body .color_box.blue {
+                            background-color: blue;
+                        }
+                        #top_body .color_box.yellow {
+                            background-color: yellow;
+                        }
+                        #top_body .color_box.orange {
+                            background-color: orange;
+                        }
+                        #top_body .color_box.red {
+                            background-color: red;
+                        }
+
+                    #top_body .similarity_box .overall_similarity .similarity_title {
+                        font-size: 13px;
+                        font-weight: normal;
+                        padding: 5px 0px 0px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity .similarity_percent {
+                        font-size: 25px;
+                        font-family: georgia, times, serif;
+                        padding: 5px 0px 15px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity a {
+                         display: none;
+                    }
+
+                #top_body .similarity_box .similarity_by_source {
+                     float: right;
+                     font-size: 10px;
+                }
+                    #top_body .similarity_box .similarity_by_source .similarity_title {
+                         padding: 6px 0px 0px 10px;
+                         font-weight: bold;
+                         text-align: left;
+                    }
+                    #top_body .similarity_box .similarity_by_source dl {
+                        padding-left: 10px;
+                        margin: 14px 7px 0px 0px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dt {
+                         float: left;
+                         width: 160px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dd {
+                        float: left;
+                        margin: 0px;
+                    }
+
+	
+		
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+	float: right;
+	margin: 0;
+	padding: 0;
+	}
+	
+#small_matches_prefs {
+    display:none;
+}
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+.yui-button{display:-moz-inline-box;display:inline-block;vertical-align:text-bottom;}.yui-button .first-child{display:block;*display:inline-block;}.yui-button button,.yui-button a{display:block;*display:inline-block;border:none;margin:0;}.yui-button button{background-color:transparent;*overflow:visible;cursor:pointer;}.yui-button a{text-decoration:none;}.yui-skin-sam .yui-button{border-width:1px 0;border-style:solid;border-color:#808080;background:url(../images/yui270/build/assets/skins/sam/96b257a32a932f7739d7dab52b38ee8fcb_sprite.png) repeat-x 0 0;margin:auto .25em;}.yui-skin-sam .yui-button .first-child{border-width:0 1px;border-style:solid;border-color:#808080;margin:0 -1px;_margin:0;}.yui-skin-sam .yui-button button,.yui-skin-sam .yui-button a{padding:0 10px;font-size:93%;line-height:2;*line-height:1.7;min-height:2em;*min-height:auto;color:#000;}.yui-skin-sam .yui-button a{*line-height:1.875;*padding-bottom:1px;}.yui-skin-sam .yui-split-button button,.yui-skin-sam .yui-menu-button button{padding-right:20px;background-position:right center;background-repeat:no-repeat;}.yui-skin-sam .yui-menu-button button{background-image:url(yui270/build/button/assets/skins/sam/6305efb37fa05af65c79b58b9d4c1b03cb_menu-button-arrow.png);}.yui-skin-sam .yui-split-button button{background-image:url(yui270/build/button/assets/skins/sam/ced974d5c685e5dfa0a37b824a6b5d48cb_split-button-arrow.png);}.yui-skin-sam .yui-button-focus{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-focus .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-focus button,.yui-skin-sam .yui-button-focus a{color:#000;}.yui-skin-sam .yui-split-button-focus button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-focus.png);}.yui-skin-sam .yui-button-hover{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-hover .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-hover button,.yui-skin-sam .yui-button-hover a{color:#000;}.yui-skin-sam .yui-split-button-hover button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-hover.png);}.yui-skin-sam .yui-button-active{border-color:#7D98B8;background-position:0 -1700px;}.yui-skin-sam .yui-button-active .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-active button,.yui-skin-sam .yui-button-active a{color:#000;}.yui-skin-sam .yui-split-button-activeoption{border-color:#808080;background-position:0 0;}.yui-skin-sam .yui-split-button-activeoption .first-child{border-color:#808080;}.yui-skin-sam .yui-split-button-activeoption button{background-image:url(yui270/build/button/assets/skins/sam/890272b241c1d8a0db3ce5680b71fab0cb_split-button-arrow-active.png);}.yui-skin-sam .yui-radio-button-checked,.yui-skin-sam .yui-checkbox-button-checked{border-color:#304369;background-position:0 -1400px;}.yui-skin-sam .yui-radio-button-checked .first-child,.yui-skin-sam .yui-checkbox-button-checked .first-child{border-color:#304369;}.yui-skin-sam .yui-radio-button-checked button,.yui-skin-sam .yui-checkbox-button-checked button{color:#fff;}.yui-skin-sam .yui-button-disabled{border-color:#ccc;background-position:0 -1500px;}.yui-skin-sam .yui-button-disabled .first-child{border-color:#ccc;}.yui-skin-sam .yui-button-disabled button,.yui-skin-sam .yui-button-disabled a{color:#A6A6A6;cursor:default;}.yui-skin-sam .yui-menu-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/4df7235ca027f2546b2a216e59f81fb0cb_menu-button-arrow-disabled.png);}.yui-skin-sam .yui-split-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/db73dce6da2f5c5f02399c93488ce69ecb_split-button-arrow-disabled.png);}
+
+</style>
+
+</head>
+
+<body onload="">
+
+
+
+<link rel="stylesheet" type="text/css" href="/r/build/css/tii/88ee4ccd3555f2b759921fb5d58d83e5cb_container.css" media="all" />
+
+
+
+
+<script type="text/javascript" src="/r/build/js/tii/8b608684a5f4aec1b540987c93498c01cb_tii_anonymous_marking.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+function initAnonymousMarking () {
+    // initialize panel.  
+    var config = {
+            zindex: 4,
+            underlay: 'none',
+            modal: true,
+            visible: false,
+            draggable: false,
+            close: false,
+            fixedcenter: true
+    };
+    if ($('disable_anonymous_marking')) {
+        disableAnonymousMarkingPanel = new IP.widget.Panel($('disable_anonymous_marking'), config);
+        if($D.hasClass('disable_anonymous_marking', 'app')) {
+            disableAnonymousMarkingPanel.center = function () {
+                var nViewportOffset = 20,
+                    elementWidth = this.element.offsetWidth,
+                    elementHeight = this.element.offsetHeight,
+                    viewPortWidth = $D.getViewportWidth(),
+                    viewPortHeight = $D.getViewportHeight(),
+                    x,
+                    y;
+
+                if (elementWidth < viewPortWidth) {
+                    x = (viewPortWidth / 2) - (elementWidth / 2) + $D.getDocumentScrollLeft();
+                } else {
+                    x = nViewportOffset + $D.getDocumentScrollLeft();
+                }
+
+				if (browser == 'Internet Explorer') {
+					x = 0;
+				}
+                y = 2 + $D.getDocumentScrollTop();
+
+                this.cfg.setProperty("xy", [parseInt(x, 10), parseInt(y, 10)]);
+                this.cfg.refireEvent("iframe");
+            };
+        }
+        disableAnonymousMarkingPanel.render(document.body);
+        disableAnonymousMarkingPanel.hideEvent.subscribe(function () { $('anonymous_error').innerHTML = ''; }, false);
+        disableAnonymousMarkingPanel.hide();
+        Element.show($('disable_anonymous_marking'));
+    }
+}
+
+function disableAM (data) {
+    $('anonymous_title').innerHTML = data.title;
+    document.disable_anonymous_marking_form.objectid.value = data.oid;
+    disableAnonymousMarkingPanel.show();
+}
+
+function checkDisableAM () {
+    var form = document.disable_anonymous_marking_form;
+    if (form.reason.value.length <= 5) {
+        $('anonymous_error').innerHTML = "Please provide a reason for turning anonymous marking off.";
+    }
+    else {
+        form.submit();
+    }
+    return;
+}
+
+YAHOO.util.Event.onDOMReady(initAnonymousMarking);
+
+</script>
+
+<div id="disable_anonymous_marking" class="app" style="display: none;">
+<div class="anonymous_frames">
+<form method="post" name="disable_anonymous_marking_form">
+    <input type="hidden" name="objectid" value=""/>
+    <input type="hidden" name="disable_anonymous_marking" value="1"/> 
+    <div class="anonymous_header">
+    	<h1>turn off anonymous marking</h1>
+		<p>Please state reason for turning off Anonymous Marking for: <span id="anonymous_title"></span><br />
+			<strong>Warning: Administrator has access to this information. This setting is permanent.</strong>
+        
+            </p>
+        
+    </div>
+    <div class="anonymous_body">
+        <textarea name="reason" cols="30" rows="3"></textarea>
+        <p id="anonymous_error"></p>
+    </div>
+    <div class="anonymous_footer">
+		<div class="anonymous_footer_buttons">
+    		<span class="submit_form_button"><input type="button" onClick="checkDisableAM();" value="submit"></span><br>
+        	<span class="submit_form_button"><input type="button" value="Cancel" onClick="disableAnonymousMarkingPanel.hide();"></span>
+		</div>
+    </div>
+</form>
+</div>
+</div>
+<div id="actions">
+<p>This is a preview of the print version of your report. Please click "print" to continue or "done" to close this window.</p>
+<script type="text/javascript" language="javascript">
+	var browserName=navigator.appName;
+	var browserVer=parseInt(navigator.appVersion);
+	if ((navigator.appVersion.indexOf("Mac")!=-1) && (browserName == "Microsoft Internet Explorer")) {
+		document.write('<span class="AR10">Type COMMAND-P to print.</span><br><br>');
+	} else {
+		document.write('<a href="javascript:window.print();">print</a>&nbsp;&nbsp;');
+	}
+</script>
+<a href="javascript:window.close();">done</a>
+</div>
+
+
+<!-- ########################### Preferences pop-up ##########################--> 
+<div id="prefs" style="visibility:hidden">
+<div class="padding">
+<form name="prefs_form" method="post" accept-charset="utf-8">
+<script type="text/javascript" language="javascript">
+function savePrefs(){
+	if (document.prefs_form.changed.value == 1){
+		document.prefs_form.submit();
+	}else{
+        hidePrefsPane();
+	}
+}
+
+function showPrefsPane(){
+    document.getElementById('prefs').style.visibility='visible';
+    document.getElementById('use_colors').focus();
+}
+
+function hidePrefsPane(){
+    document.getElementById('prefs').style.visibility='hidden';
+    document.getElementById('prefs_link').focus();
+}
+
+
+var overlay;
+function showSmallMatchExclusions() {
+    var linkRegion = $D.getRegion('exclude_small_matches_link');
+    var panelRegion = $D.getRegion('small_matches_prefs');
+    var indexRegion = $D.getRegion('index');
+    
+    var topLocation = indexRegion.bottom;
+    $D.setStyle('small_matches_prefs', 'top', topLocation + 'px');
+    $D.setStyle('small_matches_prefs', 'left', linkRegion.left + 'px');
+    
+    $D.setStyle('small_matches_prefs', 'visibility', 'visible');
+
+    // focus the field
+    $D.hasClass('exclude_by_percent_row', 'selected') ? $('exclude_by_percent_value').focus() : $('exclude_by_words_value').focus();
+}
+
+function hideSmallMatchExclusions() {
+    $D.setStyle('small_matches_prefs', 'visibility', 'hidden');
+}
+
+function selectSmallExclusionMethod(enableType) {
+    if(enableType == 'words') {
+        $('exclude_by_words_value').focus();
+        
+        $D.addClass('exclude_by_words_row', 'selected');
+        $D.removeClass('exclude_by_percent_row', 'selected');
+        $D.removeClass('exclude_by_words_row', 'disabled');
+        $D.addClass('exclude_by_percent_row', 'disabled');
+    }
+    else {
+        $('exclude_by_percent_value').focus();
+        
+        $D.removeClass('exclude_by_words_row', 'selected');
+        $D.addClass('exclude_by_percent_row', 'selected');
+        $D.addClass('exclude_by_words_row', 'disabled');
+        $D.removeClass('exclude_by_percent_row', 'disabled');
+    }
+}
+
+function updateExcludePercentage(wordCount) {
+    var percent = Math.floor(wordCount / 3086 * 100);
+    
+    $('exclude_by_percent_value').value = percent;
+}
+
+function updateExcludeWordCount(percent) {
+    var wordCount = Math.floor((percent/100) * 3086);
+    
+    $('exclude_by_words_value').value = wordCount;
+}
+
+function submitSmallMatchesChange() {
+    var excludeBy = $D.hasClass('exclude_by_percent_row', 'selected') ? 'percent' : 'words';
+    var excludeValue = excludeBy == 'percent' ? $('exclude_by_percent_value').value : $('exclude_by_words_value').value;
+    
+    changeSmallMatchExclusion(excludeBy, parseInt(excludeValue), 3086);
+}
+
+</script>
+</script>
+<input type="hidden" name="changed" value="0">
+        <div class="pref_rows">
+                <label for="use_colors">color-code matches:</label>
+                <select id="use_colors" name="use_colors" onchange="document.prefs_form.changed.value=1">
+                    <option value="1">yes
+                    <option value="0" selected>no
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="def_report_mode">default mode:</label>
+                <select id="def_report_mode" name="def_report_mode" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">show highest matches together
+                    <option value="1">show matches one at a time
+                    <option value="2">quickview (classic) report
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="report_scrolling">auto-navigation:</label>
+                <select id="report_scrolling" name="report_scrolling" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">jump to next match
+                    <option value="1">scroll to next match
+                </select>
+                <div class="clear"></div>
+        </div>
+        
+        <div id="prefs_confirm">
+            <button onClick="savePrefs()" >Save</button>  
+         <a href="javascript:void(0);" onClick="hidePrefsPane();">Cancel</a>
+        </div>
+</form>
+</div>
+</div>
+<!-- ########################### END Preferences pop-up  ##########################--> 
+
+<!-- ########################### BEGIN small matches pop-up  ##########################--> 
+<div id="small_matches_prefs">
+    <form onsubmit="submitSmallMatchesChange(); return false;">
+        <ul>
+            <li id="exclude_by_words_row" class="selected">
+                <label for="exclude_by_words_value">Word Count: </label>
+                <input type="text" id="exclude_by_words_value" size="3" value="" onkeyup="updateExcludePercentage(this.value)" onfocus="selectSmallExclusionMethod('words')"> words
+            </li>
+            <li id="exclude_by_percent_row" class="disabled">
+                <label for="exclude_by_percent_value">Percentage: </label>
+                <input type="text" id="exclude_by_percent_value" size="3" value="" max-length="3" onkeyup="updateExcludeWordCount(this.value)" onfocus="selectSmallExclusionMethod('percent')"> %
+            </li>
+        </ul>
+        <p><input type='submit' value="submit"> or <a href="javascript:hideSmallMatchExclusions()">Cancel</a></p>
+    </form>
+</div>
+
+<!-- ########################### END small matches pop-up  ##########################-->
+
+<!-- ########################### Top of Report  ##########################--> 
+<div id="top">
+    <div id="content">
+    
+        <!-- ######### Top Bar  ##########################--> 
+        <div id="top_bar">
+                <ul id="top_bar_list1">
+                      <!-- Preferences --><li><a id="prefs_link" href="javascript:showPrefsPane();">preferences</a></li> 
+                </ul>
+                <ul id="top_bar_list2">
+                      
+                </ul>
+                <div class="clear"></div>
+        </div>   
+        <!-- ######### END Top Bar  ##########################--> 
+        
+        
+        <!-- ######### Top Body  ##########################--> 
+        <div id="top_body">
+        
+            <div id="print_wrapper">
+                <div class="general_info">
+                    <!-- Logo --> 
+                    <h2>
+                        <span class=""></span>
+                        <strong>Turnitin</strong>
+                        <em>Originality Report</em>
+                     </h2>
+                 
+                     <!-- Paper Info -->               
+                     <ul>
+                         <li>Processed on: 05-Nov-2019  4:10 AM PST</li>
+                         <li>ID: 1207472197 </li>
+                         <li>Word Count: 3086</li>
+                         <li>Submitted: 1</li>
+                     </ul>
+                </div>
+
+                 <!-- Paper Title --> 
+                <h3>
+                    <strong>STW302CEM_Technical_Report_The_Losers</strong> 
+                    
+                    <em>By Student User</em>
+                    
+                </h3>
+            </div>
+            
+            <div id="similarity_print_wrapper">
+                <div class="similarity_box">
+                    <div class="overall_similarity">
+                        <div class="color_box green">&nbsp;</div>
+                        <div class="similarity_title">Similarity Index</div>
+                        <div class="similarity_percent">13%</div>
+                    </div>
+                    <div class="similarity_by_source">
+                        <div class="similarity_title">Similarity by Source</div>
+                        <dl>
+                            <dt>Internet&nbsp;Sources:</dt>
+                            <dd>4%</dd>
+                            <div class="clear"></div>
+                            <dt>Publications:</dt>
+                            <dd>2%</dd>
+                            <div class="clear"></div>
+                            <dt>Student&nbsp;Papers:</dt>
+                            <dd>13%</dd>
+                            <div class="clear"></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                                 
+        </div>
+        <!-- ######### END Top Body  ##########################--> 
+        
+        
+    </div>
+</div>
+<!-- ########################### END Top of Report  ##########################--> 
+
+
+
+<!-- ########################### TOOLBAR  ##########################--> 
+<div id="index">
+	<div id="toolbar_wrapper">
+        
+	</div>
+</div>
+<!-- ########################### END TOOLBAR  ##########################--> 
+
+
+<div class="links">
+	<div>
+	<p>3% match (student papers from 08-Nov-2017)</p>
+
+	<p><a href="javascript:openDSC(876342345,1,'0')" target="_blank" style="color:red">Submitted to American Intercontinental University Online on 2017-11-08</a></p>
+
+
+	</div>
+	<div>
+	<p>2% match (Internet from 05-Nov-2019)</p>
+
+	<p><a href="https://www.agilealliance.org/glossary/bdd/" target="_blank" style="color:green">https://www.agilealliance.org/glossary/bdd/</a></p>
+
+
+	</div>
+	<div>
+	<p>2% match (student papers from 14-Oct-2019)</p>
+
+	<p><a href="javascript:openDSC(1623331320,1,'0')" target="_blank" style="color:blue">Submitted to National Institute of Business Management Sri Lanka on 2019-10-14</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (student papers from 13-Mar-2018)</p>
+
+	<p><a href="javascript:openDSC(929688080,1,'0')" target="_blank" style="color:brown">Submitted to Swinburne University of Technology on 2018-03-13</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (Internet from 11-Apr-2019)</p>
+
+	<p><a href="https://mo-kh.com/2008/01/open-source-version-control-cvs/" target="_blank" style="color:#ff6600">https://mo-kh.com/2008/01/open-source-version-control-cvs/</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (student papers from 06-May-2019)</p>
+
+	<p><a href="javascript:openDSC(600606414,2,'0')" target="_blank" style="color:#630000">Submitted to University of Westminster on 2019-05-06</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (student papers from 19-Dec-2018)</p>
+
+	<p><a href="javascript:openDSC(1478344170,1,'0')" target="_blank" style="color:#009cff">Submitted to Temple City High School on 2018-12-19</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (student papers from 04-May-2010)</p>
+
+	<p><a href="javascript:openDSC(6642374,2,'0')" target="_blank" style="color:#31ff00">Submitted to University of Wales Swansea on 2010-05-04</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (student papers from 25-Sep-2018)</p>
+
+	<p><a href="javascript:openDSC(1007844413,1,'0')" target="_blank" style="color:#330099">Submitted to Harrisburg University of Science and Technology on 2018-09-25</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (student papers from 17-Apr-2018)</p>
+
+	<p><a href="javascript:openDSC(948632429,1,'0')" target="_blank" style="color:#00cc99">Submitted to Harrisburg University of Science and Technology on 2018-04-17</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (publications)</p>
+
+	<p><a href="http://dx.doi.org/10.1007/978-1-4302-6032-5" target="_blank" style="color:#ff0063">PHP Obejcts Patterns and Practice, 2013.</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (student papers from 02-Oct-2017)</p>
+
+	<p><a href="javascript:openDSC(855456659,1,'0')" target="_blank" style="color:#006331">Submitted to Harrisburg University of Science and Technology on 2017-10-02</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (Internet from 30-Jun-2018)</p>
+
+	<p><a href="http://www.theseus.fi/bitstream/handle/10024/140145/Simonenkovas_Adomas.pdf?isAllowed=y&sequence=1" target="_blank" style="color:#9966ff">http://www.theseus.fi/bitstream/handle/10024/140145/Simonenkovas_Adomas.pdf?isAllowed=y&sequence=1</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (publications)</p>
+
+	<p><a href="http://dx.doi.org/10.1117/12.2230626" target="_blank" style="color:#9c6331">Buttu, M., M. Bartolini, C. Migoni, A. Orlati, S. Poppi, and S. Righini. "Rules of thumb to increase the software quality through testing", Software and Cyberinfrastructure for Astronomy III, 2016.</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (student papers from 15-Jan-2019)</p>
+
+	<p><a href="javascript:openDSC(1064209140,1,'0')" target="_blank" style="color:#ce0031">Submitted to Asia Pacific University College of Technology and Innovation (UCTI) on 2019-01-15</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (student papers from 09-Apr-2017)</p>
+
+	<p><a href="javascript:openDSC(796578503,1,'0')" target="_blank" style="color:#cc9900">Submitted to UNITEC Institute of Technology on 2017-04-09</a></p>
+
+
+	</div>
+</div>
+<div id="body" tabIndex="0">
+<p>Table of Content Version Control ........................................................................................................................................................................ 2 Implementation of Version Control ............................................................................................................................ 3 GIT and GitHub .................................................................................................................................................................... 3 GIT commands: .................................................................................................................................................................... 4 Benefits of using Version Control ................................................................................................................................ 7 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 14 in source list: Buttu, M., M. Bartolini, C. Migoni, A. Orlati, S. Poppi, and S. Righini. "Rules of thumb to increase the software quality through testing", Software and Cyberinfrastructure for Astronomy III, 2016."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=59580597&n=37&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#9c6331" class="#9c6331">Test Driven Development (TDD):</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> ..................................................................................................................................... 8 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 14 in source list: Buttu, M., M. Bartolini, C. Migoni, A. Orlati, S. Poppi, and S. Righini. "Rules of thumb to increase the software quality through testing", Software and Cyberinfrastructure for Astronomy III, 2016."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=59580597&n=37&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#9c6331" class="#9c6331">Behavior Driven Development (BDD):</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> ......................................................................................................................... 12 BDD Workflow: .................................................................................................................................................................. 12 Tool used for BDD: ........................................................................................................................................................... 13 Version Control Simply, Version Control Systems (VCS) can be understood as <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">a category of software</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> tool <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">that helps</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> an individual or <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">a team</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> to <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">manage</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">changes to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">source code</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> of a product <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">over</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Submitted to Harrisburg University of Science and Technology on 2018-09-25"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1007844413&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">time</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> of production. The greatest merit of using a version control system is that if an error occurs during the production phase, the developer can go back to an earlier version <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 15 in source list: Submitted to Asia Pacific University College of Technology and Innovation (UCTI) on 2019-01-15"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1064209140&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">of the product</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> which <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 15 in source list: Submitted to Asia Pacific University College of Technology and Innovation (UCTI) on 2019-01-15"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1064209140&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">allows the developer to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> compare <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 15 in source list: Submitted to Asia Pacific University College of Technology and Innovation (UCTI) on 2019-01-15"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1064209140&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> code and to fix the error/mistake without disturbing other members of the team. The code for a program or a product is generally divided within a folder structure or file tree where codes related to the database, frontend, scripts etc. are stored. One developing member of the team maybe busy on adding new features for the product whereas another developer maybe trying to fix bugs at the same time, each developer may change specific features <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">in several</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> portions <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">of the file tree. Version control</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> traces <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">every individual change by</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the respective <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">contributor and</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> helps <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">prevent concurrent work from conflicting</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> with each other. A good version control software facilitates <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">a smooth and</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> uninterrupted <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">flow of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> modification <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">to the code</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">without imposing one particular way of working.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (Anon., 2019) Some of the free or open source Version Control tools that are popular now-a-days are as follows: (Anon., 2019) ? <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">CVS (Concurrent Versions System):</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> This <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">version control system</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> is <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">an important component of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> SCM <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">(Source Configuration Management). It is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> free to use <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">and it can record the history of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the source <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: https://mo-kh.com/2008/01/open-source-version-control-cvs/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1571513567&n=3722&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff6600" class="#ff6600">files and documents it.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> ? SVN (Apache Subversion): Subversion control system is a popular system that many large products use such as Python apache, Ruby etc. even google uses it to distribute the required codes. ? <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: http://www.theseus.fi/bitstream/handle/10024/140145/Simonenkovas_Adomas.pdf?isAllowed=y&sequence=1"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=352720565&n=3265&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#9966ff" class="#9966ff">GIT: GIT is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> relatively <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: http://www.theseus.fi/bitstream/handle/10024/140145/Simonenkovas_Adomas.pdf?isAllowed=y&sequence=1"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=352720565&n=3265&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#9966ff" class="#9966ff">a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> newer <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: http://www.theseus.fi/bitstream/handle/10024/140145/Simonenkovas_Adomas.pdf?isAllowed=y&sequence=1"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=352720565&n=3265&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#9966ff" class="#9966ff">version control system that</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> have become well known in a short amount of time. Due to the unique features of this system many people chose this system over others. ? Mercurial: This version control system is similar to GIT but it mainly focuses on large projects instead of independent small-scale projects. Implementation of Version Control The project of our team is an Online Auction House. Users can bid with each other to obtain a product auctioned at the system site. The system or application is fully web based with functions similar to an authentic auction. For the backend portion of the system “NodeJS” has been implemented and for the database portion of the system MongoDB has been used. For the frontend portion of the system HTML has been used along with Bootstrap and CSS for better outlook as well as for better user experience. AJAX as well as JavaScript has been used for the logical portions of the frontend as well as to connect the Frontend system with the Backend portion of the system. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">For the Version Control</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> for the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">system GIT</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> has been used. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">GIT</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> and GitHub <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 11 in source list: PHP Obejcts Patterns and Practice, 2013."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=53636003&n=37&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff0063" class="#ff0063">GIT is a version control system that</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> helps developers <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 11 in source list: PHP Obejcts Patterns and Practice, 2013."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=53636003&n=37&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff0063" class="#ff0063">to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> manage or control <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 11 in source list: PHP Obejcts Patterns and Practice, 2013."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=53636003&n=37&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ff0063" class="#ff0063">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> project files for a software or application. The primary function or feature of GIT is to keep track of every changes made in a project by the developers. GIT mainly keeps track of changes of the codes used to develop the product. To develop a system the developer first needs to build a basic version for the system and needs to improve the system over time by adding new features and develop functions as required for the system to work. While developing a system various types of error and bugs can arise that can affect the whole work which can affect the functions the developer is currently working on. Hence, if a developer wants to revert or rewind back to a previous version where there were no bugs or errors, he/she can do it easily with the help of GIT. GIT also allows more than one person to modify codes for the system as a team at the same time without disturbing other developers with the help of “branching”. (Anon., 2019) <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">GitHub is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> basically <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">a web-based service for version</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> controlling <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">using GIT.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> GitHub is <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">basically a social networking site for developers</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> where one developer <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">can</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> view <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to Temple City High School on 2018-12-19"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1478344170&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#009cff" class="#009cff">other people’s</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> codes as well as work with their code if permitted. It can basically be categorized as an online database where developers can store and track the changes in their project/system. (Anon., 2019) GIT commands: Some of the basic GIT commands used for Version controlling are as follows: (Anon., 2018) <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">Git init: This command is used to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> create a local GIT repository for the project. Command: git init <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">Git clone: This command is used to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> copy a repository <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">from a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> remote server to the workspace. Command: git clone <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">Git add: This command is used to add</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> files to <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> working area of the project. Command: git add . Git commit: This command creates an image file or snapshot of the saved <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">changes made to the files of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">project</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> along with <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Submitted to University of Wales Swansea on 2010-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:6642374&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#31ff00" class="#31ff00">a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> message for the change code. Command: git commit -m “Something” Git config: It is used to set user-specific configurations like user-email, password, username etc. Command: git config --global Git status: This command displays the list of altered files along with uncommitted files. Command: git status Git push: This command uploads the local commits of the project to the main branch of the remote server. Command: git push Git checkout: This command creates branches as well as helps the developer to navigate between those branches. Command: git checkout branch name Git remote: This command shows all remote repositories. Command: git remote -v Git branch: It lets you create, list or delete the branches of the system/project. Command: git branch Git pull: This command merges the present code in the remote repository with the working directory. Command: git pull Git merge: This is used to combine a branch into the active one. Command: <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">git merge branch name</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Git reset: <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">This command is used to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> reset <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> working directory to <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Swinburne University of Technology on 2018-03-13"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:929688080&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> previous commit’s state. Command: git reset --hard GIT in our System Our agile team consists of six members in total. There are two testers, three developers and one scrum master. All the members of our team have the privilege to edit and manage the required code to make the system better. Branches have also been divided according to the roles of the members in the team. The testers work on their own respective branch whereas developers also work on their respective branch. The main folder that GIT keeps track of is called a repository, it is the main branch for the whole system. First of all, the team members need to clone the main repository on their respective computers/laptops in order to start the development process. After cloning the main repository, the members/developers can begin to update the system. If the team member wants to push the work done by him, he needs to commit the work before pushing the change to the respective branch. The above snippet is the GitHub view page of our current project “iBid”, here we can see the branches made for the respective roles of the team members as well the number of commits to the branch. The number of commits differ for each branch since different work is being done in each branch. Things don’t always go as planned while working as a team. Many misunderstandings may arise while working as a team. For example, not able to finish the given work at time, lack of communication between the members, repeating the same work by different members as well as managing and dividing the work between the members of the team. Benefits of using Version Control Version Control System has gone through many improvements over the past few years. There are many version control systems, people have their own preferences but <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">the primary benefits</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> that <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">should</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> be expected <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">from</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> a <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">version control</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> system <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">are as</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> follow: (Anon., 2019) ? ? Change history of every related file: Long term history of the changes made by every individual developer to the product. Changes made to the project include updates to the files as well as deletion of files. The main purpose of storing the complete history of every change made is to help in the rollback function or rewinding to a previous version to analyze and compare codes in hopes to find the specific bugs as well as to find the root cause of a problem or error, it is crucial at the time of fixing errors. Branching and merging: In normal situations without version control technique, team member working in a parallel pace or concurrently is very difficult. The work between the members would collide as well as coexisting codes would be repeated without knowledge. With the help of a feature of Version Control system called “Branching” this problem can be resolved easily. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">A</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> “Branch” used <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">in</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> a <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Version Control system keeps</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> numerous <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">streams of work independent from each other while providing the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> feature <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">to merge</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the whole project when required. This enables the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">developers to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> confirm <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">that the changes on each</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> individual <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">branch do not</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> have any type of conflicts with each other. There are various types of workflows that a team can adopt <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 12 in source list: Submitted to Harrisburg University of Science and Technology on 2017-10-02"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:855456659&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#006331" class="#006331">when they decide how to use</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the feature <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 12 in source list: Submitted to Harrisburg University of Science and Technology on 2017-10-02"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:855456659&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#006331" class="#006331">of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Version control system “Branching and Merging “. ? Traceability: <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 12 in source list: Submitted to Harrisburg University of Science and Technology on 2017-10-02"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:855456659&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#006331" class="#006331">Version Control</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Systems provide <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Submitted to Harrisburg University of Science and Technology on 2018-04-17"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:948632429&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#00cc99" class="#00cc99">the ability to trace each</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> and every <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Submitted to Harrisburg University of Science and Technology on 2018-04-17"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:948632429&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#00cc99" class="#00cc99">change made to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> a program <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Submitted to Harrisburg University of Science and Technology on 2018-04-17"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:948632429&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#00cc99" class="#00cc99">and connect it to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the development of the project as well as can be used to track bugs in the software. The developers can even <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">annotate each change with a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> short <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">message</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> explaining <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> motive <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to American Intercontinental University Online on 2017-11-08"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:876342345&perc=3', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">of the change.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> The annotated history of the program will benefit in the future while fixing bugs or even adding new features, having the notes will help the developer understand what that piece of code is doing and why it is important. This will help the developer in making the correct and balanced changes in the system. Test Driven Development (TDD): If we look for the meaning of TDD, it is basically a programming practice where the developers bypass the duplication of code by writing <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 16 in source list: Submitted to UNITEC Institute of Technology on 2017-04-09"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:796578503&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#cc9900" class="#cc9900">new code only when the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> automated <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 16 in source list: Submitted to UNITEC Institute of Technology on 2017-04-09"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:796578503&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#cc9900" class="#cc9900">test fails. TDD’</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> s fundamental aim is clearer, bug-free and simple code. The automated tests are run even before starting the actual development of the product and hence, people also refer it as Test First Development. Here, we begin by drafting and establishing tests for single one of the functionalities of the product. This will later validate and specify the outcome of the code. But, since the tests are written before the development process, there is always a higher probability of failure. Therefore, developers need to constantly apply changes to the code i.e. refactoring and continue to do so until the test is passed. (Anon., 2019) The general steps to perform a TDD test is as follows: <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 6 in source list: Submitted to University of Westminster on 2019-05-06"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:2:600606414&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#630000" class="#630000">1. Add a test 2. Run all tests and see if the new one fails 3. Write some code 4. Run tests 5. Refactor code 6. Repeat</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Figure 1: Steps of TDD test A common misconception about automated tests is that it is time consuming. But in reality, automated tests help the developers along with the team to build the product much more quickly and with a higher quality. The followings are some of the benefits of TDD which might help to clear out the doubts and misconceptions of people. ‣ It asks us to acknowledge our desired outcome of the code. ‣ Quick feedback. ‣ Increases time efficiency via refactoring. ‣ Less loss of time in the debugger. ‣ Creation of a thorough specification. ‣ Encourage evolution in design and comply with varying understanding of the problem. ‣ Forces radical simplification of code. ‣ Final unit tests are simple and can be utilized as documentation for the code. ‣ Fewer bugs and enhanced quality. ‣ Cost efficient development along with increased productivity of the developers. ‣ Leads to more flexible, modularized and extensible code which further leads to cleaner interfaces, relaxed coupling, and smaller but highly focused classes. ‣ Grants ability to painlessly update the software in case of new business requirements or other unexpected variables. (Anon., 2019) For TDD also, we have executed Unit testing of all the functionalities of the system. The unit test was carried out in Node.js with the help of code editor Visual Studio Code. The following steps were pursued in the process of Unit testing: 1. At first, the whole system was divided into small functional units. 2. Next up, state-based-testing was chosen over the interaction-based testing for our system. 3. The data required to run the test was analyzed. 4. Test case for each of the functionalities were written. 5. Thus prepared test scenarios were then run. 6. After running the test, the behavior of the program was then observed. 7. Final result of the test was compared with the expected result of the test. 8. In case of failed tests, the test was re-written and run until it passed. (Anon., 2019) An image illustrating the procedure followed for unit testing in our project is shown below: Figure 2: Unit test case of a functionality Figure 3: Result of the Unit test cases Behavior Driven Development (BDD): As for the definition, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">BDD is a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> union <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">and refinement of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> processes of <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">Test Driven Development (TDD) and Acceptance Test Driven Development (ATDD)</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> which utilizes samples in order to represent the characteristics/behavior of the system that are noted in a readable and recognizable language for all the people associated with development. One of the target of BDD is to offer a shared procedure and tools to promote communication among business analysts and software developers during the development phase in order to hand over a product carrying business value. Next up, it looks up into what a system should do and not do on its implementation method. It also sheds light on the visibility and readability. Last but not the least, it ensure that the product not only functions well but also meets the expectations of the client. (Anon., 2019) Furthermore, it expands ATDD and TDD with accompanying strategies: ‣ <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">Apply the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">"Five Why's" rule <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">to each proposed</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> client <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">story, so its</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> motivation <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> obviously identified with <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">business</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> results. ‣ To limit waste, implement <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">thinking</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> “from the outside in”, which means implementing <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">just those practices</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> that <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">contribute</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> more precisely <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the same <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">business results.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> ‣ Depict <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">practices in a solitary documentation which is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> directly <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">available to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> domain <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">specialists,</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> developers <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">and</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> testers, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">in order to improve</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> communication. ‣ <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">Apply these</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> procedures <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">right down to the most reduced degrees of deliberation of the product, giving specific consideration to the dispersion of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> behavior, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to National Institute of Business Management Sri Lanka on 2019-10-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&oid=oid:1:1623331320&perc=2', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">with the goal that</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> evolution stays modest. BDD Workflow: The workflow if BDD can be essentially divided into three main parts: 1. Define: At first, the domain specialist or the business analyst drafts behaviors into a feature file which is typically written as standard sentences and is presents it to the team. 2. Create: With respect to the behaviors listed in the feature file, developers prepare a code known as “glue code”, which pictures behaviors to certain administration. An example is as follows: Given I am the user When I enter my login credentials in the login page Then I should be able to access the website 3. Verify: Next, the testers compare the glue code against the feature file in order to ensure that the application code correlates to the behaviors. This process is executed with the help of a BDD tool such as HipTest, Cucumber, etc. For the output, the feature file is compiled and pulled off to confirm the functionality. Moving on to the advantages of using BDD, here are some of the expected benefits of it: ‣ It grants more clear-cut guidance on arranging the discussion between domain specialists, developers and testers. ‣ Documentations starting in the BDD method, specifically the given-when-then canvas, are nearer to ordinary day to day <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">language and have a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> trivial <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">learning curve</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> contrasted with <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">those of tools,</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> for example, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">Fit/FitNesse. ‣ Tools</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> focusing on <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">a BDD approach</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> for <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> most part bear <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://www.agilealliance.org/glossary/bdd/"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=11.6141794951762&svr=53&session-id=a3d58e881b434dba1c956fb27f57b8aa&lang=en_us&sid=1154527773&n=3783&svr=57&session-id=a3d58e881b434dba1c956fb27f57b8aa', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">the automatic generation of technical and end user documentation from BDD</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> “specifications”. (Anon., 2019) Tool used for BDD: Out the varieties of tools available in the market, to name a few, HipTest, Easy B, J Behave, etc., we have used Cuke Test. The tool is most importantly free and it aids in drafting tests that are simple to understand for people even without Technical knowledge. Additionally, it helps to keep the test case scenarios and the requirement statement in the same place. Similarly, it is confined only for Web- driven automation, so it was also the selling point for us. The whole process of tracking the implementation is also easy with it as it displays the behavior sets that have been implemented and in working status. BDD Code Some of the BDD test cases used to test the system are as follows: ? The First case is for the scenario of a user login. When the user inputs the required credentials with the registered username & password, then he must be able to enter the system. Figure 4: BDD test case for User Login ? The second BDD case scenario is to update the username of the registered user. The bellow picture shows the success of updating a username. Figure 5: BDD test case for updating user ? The third BDD case scenario is of the admin login. The admin should be able to log in to the admin dashboard. Figure 6: BDD test case for Admin Login. [Accessed 14 October 2019]. References Anon., Available at: 2018. dzone.com. [Online] https://dzone.com/articles/top-20-git-commands-with-examples Anon., Available 2019. Behavior Driven Development (BDD). [Online] at: https://www.agilealliance.org/glossary/bdd/#q=~(infinite~false~filters~(postType~(~'page~'p ost~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_vid eo)~tags~(~'bdd))~searchTerm~'~sort~false~sortDirection~'asc~page~1) Anon., 2019. Benefits of Test Driven Development. Available at: https://dzone.com/articles/20-benefits-of-test-driven-development Anon., 2019. Available [Accessed 11 October 2019]. at: github.com. Available at: wikihow.com/Write-Unit-Tests Anon., 2019. Available [Accessed 11 October 2019]. Anon., 2019. How at: to Write git-scm.com/. Unit [Online] [Online] https://github.com [Online] https://git-scm.com/ Tests. [Online] Anon., 2019. Introduction to Behavior Driven Development. [Online] Available at: https://www.tutorialspoint.com/behavior_driven_development/behavior_driven_development_int roduction.htm Anon., 2019. seguetech.com. [Online] Available at: https://www.seguetech.com/a-review-of-software-version-control-systems-benefits- and-why-it-matters/ [Accessed 15 October 2019]. Anon., 2019. What is Test Driven Development Available at: https://www.guru99.com/test-driven-development.html (TDD). [Online] Anon., 2019. what-is-version-control. Available at: https://www.atlassian.com/git/tutorials/what-is-version-control [Online] Anon., 2019. www.getfilecloud.com. [Online] Available at: https://www.getfilecloud.com/blog/2015/02/top-5-open-source-version-control- tools-for-system-admins/#.XcFSLugza00 [Accessed 15 October 2019]. </p>
+</div>
+</body>
+</html>

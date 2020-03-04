@@ -1,0 +1,76 @@
+agile vs waterfall
+	waterfall stages : requirement, design, development, testing, deployment
+	agile focuses from the right end of the waterfall stages
+	waterfall model fails as feedbacks are given after deployment
+	
+Different processes of scrum
+	define product backlog
+	define product theme
+	breakdown of features
+	story sizing(story points)
+	set release point
+	sprint backlog
+	sprint execution
+	(start new sprint)
+Sprint planning
+	forcast functionality
+	discuss objective and achievement of sprint goal
+principles of agile
+DSDM vs Agile
+DSDM(Dynamic Systems Development Methodology)
+3 roles in scrum
+	scrum master
+	product owner
+	team
+DSDM lifecycle
+DSDM phases
+DSDM principles
+	focus on the business needs
+	Deliver on time
+	Collaborate
+	Never compramize quality
+	Develop Iterative
+	Communicate Clearly
+	Demonstrate control
+DSDM Roles(Detail)
+	Business Sponser
+	Business Visonary
+	Technical Coordinator
+	Project Manager
+	Business Analyst
+	Team Leader
+	Business Ambassador
+	Solution Developer
+	Solution Tester	
+TDD perspective
+What does BDD solve?
+	communication between business analyst, tester and developer
+Agile manifisto vs BDD alignment
+What,Why BDD?How does it help in software development
+BDD implementation steps
+	write our acceptance criteria using BDD scenario
+	Automate tests through BDD scenrio
+	Use tools like cucumber to automate test
+
+Burndown chart
+	time x days
+
+Scrum framework
+Scrum ceremonies
+	Sprint planning
+	Daily scrum	
+	Backlog Grooming
+	Sprint review
+	Sprint Retrospective
+Daily Scrum
+	Individual update
+	Sprint goal status
+Sprint Review
+	Shows team progress to external stakeholders
+	Demo
+	Determine what has finished and what hasnt
+Sprint Retrospective
+	What went well/What could be improved
+	individual perspective (satisfaction)
+	
+	 
